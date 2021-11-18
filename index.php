@@ -15,6 +15,21 @@
         backdrop-filter: invert(.3);
     }
   </style>
+
+  <!-- recuperer l'addresse ip -->
+  <?php 
+
+                $json = file_get_contents('https://ip.seeip.org/jsonip');
+
+                //Decode JSON
+                $json_data = json_decode($json,true);
+                $ip= $json_data["ip"];
+                $ip = trim($ip);
+
+                
+?> 
+
+
   <h1 class="text-center py-2 px-2 rounded my-5 login-title"><b><?php echo $_settings->info('name') ?></b></h1>
 <div class="w-100">
     <div class="row justify-content-center">
@@ -42,8 +57,12 @@
                                <div class="row justify-content-center">
                                    <div class="col-md-8">
                                        <div class="form-group text-center">
-                                           <label for="employee_code">Please Enter your employee code.</label>
+                                           <label for="employee_code">Enter votre code Simplon.</label>
                                            <input type="text" id="employee_code" name="employee_code" class="form-control form-control-lg rounded-0" autofocus autocomplete="off">
+                                       </div>
+                                       <div class="form-group text-center">
+                                           <label for="ip">Votre Adresse IP est: </label>
+                                           <input type="text" id="ip" name="ip" class="form-control form-control-lg rounded-0" autofocus autocomplete="off" value="<?=$ip; ?>" readonly>
                                        </div>
                                        <div class="form-group text-center">
                                            <button class="btn btn-lg rounded-pill btn-primary elog px-4 col-4" type="button" data-type='1' >In</button>
@@ -108,6 +127,7 @@
 <script src="dist/js/adminlte.min.js"></script>
 
 <script>
+
     function alert_swal($title="",$message= "",$type="success",$timer = 3500){
         Swal.fire({
             icon:$type,
@@ -117,7 +137,7 @@
         }).then((result)=>{
             setTimeout(() => {
                 if(result.isConfirmed === true || result.isDismissed === true){
-                if($('form#employee-log-form #employee_code').is(":visible") === true)
+                if($('form#employee-log-form #  ').is(":visible") === true)
                 $('form#employee-log-form #employee_code').show().trigger('focus');
                 if($('form#visitor-log-form #name').is(":visible") === true)
                 $('form#visitor-log-form #name').show().trigger('focus');
@@ -140,14 +160,17 @@
         e.preventDefault()
     })
     $('.elog').click(function(){
-        if($('#employee_code').is(':visible') == true){
+        console.log(document.getElementById('ip').value);
+        if(document.getElementById('ip').value == '105.235.111.211'){
+            if($('#employee_code').is(':visible') == true){
             $('form#employee-log-form [name="type"]').val($(this).attr('data-type'))
             $('form#employee-log-form').submit()
         }
         if($('#name').is(':visible') == true){
             $('form#visitor-log-form [name="type"]').val($(this).attr('data-type'))
             $('form#visitor-log-form').submit()
-        }
+        }}
+        
     })
     $('form#employee-log-form').submit(function(e){
         e.preventDefault();
