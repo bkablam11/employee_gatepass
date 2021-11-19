@@ -4,31 +4,31 @@ $to = isset($_GET['to']) ? $_GET['to'] : date("Y-m-d");
 ?>
 <div class="card card-outline card-primary">
 	<div class="card-header">
-		<h3 class="card-title">Employee Logs</h3>
+		<h3 class="card-title">Rapport sur les Apprenants</h3>
         <div class="card-tools">
-			<button type="button" class="btn btn-flat btn-success" id="print"><span class="fas fa-print"></span>  Print</button>
+			<button type="button" class="btn btn-flat btn-success" id="print"><span class="fas fa-print"></span>Imprimer</button>
 		</div>
 	</div>
 	<div class="card-body">
 		<fieldset>
-			<legend class="text-info">Filter Date Range</legend>
+			<legend class="text-info">Filtrer par date</legend>
 			<form action="" id="filter-data">
 				<div class="row align-items-end">
 					<div class="col-md-4">
 						<div class="form-group">
-							<label for="date_from" class="control-label text-info">From</label>
+							<label for="date_from" class="control-label text-info">A partir du</label>
 							<input type="date" id="from" name="from" class="form-control form-control-sm rounded-0" value="<?php echo $from ?>" required>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="form-group">
-							<label for="date_to" class="control-label text-info">To</label>
+							<label for="date_to" class="control-label text-info">Jusqu'au</label>
 							<input type="date" id="to" name="to" class="form-control form-control-sm rounded-0" value="<?php echo $to ?>" required>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="form-group">
-							<button class="btn btn-flat btn-sm btn-primary"><i class="fa fa-filter"></i> Filter</button>
+							<button class="btn btn-flat btn-sm btn-primary"><i class="fa fa-filter"></i> Filtrer</button>
 						</div>
 					</div>
 				</div>
@@ -59,9 +59,8 @@ $to = isset($_GET['to']) ? $_GET['to'] : date("Y-m-d");
                             <th>#</th>
                             <th>Date/Time</th>
                             <th>Image</th>
-                            <th>Employee</th>
-                            <th>Employee Details</th>
-                            <th>Log Type</th>
+                            <th>Apprenants</th>
+                            <th>Entrées/Sorties</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -87,14 +86,6 @@ $to = isset($_GET['to']) ? $_GET['to'] : date("Y-m-d");
 										<small>
 											<span class="text-muted">Code: </span><span><?php echo $row['employee_code'] ?></span><br>
 											<span class="text-muted">Name: </span><span><?php echo $row['fullname'] ?></span>
-										</small>
-									</p>
-								</td>
-								<td>
-									<p class="m-0">
-										<small>
-											<span class="text-muted">Department: </span><span><?php echo $row['department'] ?></span><br>
-											<span class="text-muted">Position: </span><span><?php echo $row['designation'] ?></span>
 										</small>
 									</p>
 								</td>

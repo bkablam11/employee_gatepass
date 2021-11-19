@@ -15,9 +15,9 @@
 </style>
 <div class="card card-outline card-primary">
 	<div class="card-header">
-		<h3 class="card-title">List of Employee</h3>
+		<h3 class="card-title">Liste des Simplonien(e)s</h3>
 		<div class="card-tools">
-			<a href="<?php echo base_url."admin?page=employee/manage_employee" ?>" id="create_new" class="btn btn-flat btn-sm btn-primary"><span class="fas fa-plus"></span>  Add New Employee</a>
+			<a href="<?php echo base_url."admin?page=employee/manage_employee" ?>" id="create_new" class="btn btn-flat btn-sm btn-primary"><span class="fas fa-plus"></span>Ajouter un apprenant</a>
 		</div>
 	</div>
 	<div class="card-body">
@@ -36,10 +36,9 @@
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Date Created</th>
-						<th>Avatar</th>
-						<th>Employee</th>
-						<th>Company Info</th>
+						<th>Date de création</th>
+						<th>Photo</th>
+						<th>Apprenants</th>
 						<th>Status</th>
 						<th>Action</th>
 					</tr>
@@ -47,10 +46,6 @@
 				<tbody>
 					<?php 
 						$i = 1;
-						$department_qry = $conn->query("SELECT * FROM department_list where id in (SELECT department_id FROM employee_list) ");
-						$department_arr = array_column($department_qry->fetch_all(MYSQLI_ASSOC),'name','id');
-						$designation_qry = $conn->query("SELECT * FROM designation_list where id in (SELECT designation_id FROM employee_list) ");
-						$designation_arr = array_column($designation_qry->fetch_all(MYSQLI_ASSOC),'name','id');
 						$qry = $conn->query("SELECT *  from `employee_list`order by fullname asc ");
 						while($row = $qry->fetch_assoc()):
 							$row['department'] = isset($department_arr[$row['department_id']]) ? $department_arr[$row['department_id']] : 'N/A';
@@ -65,14 +60,6 @@
 									<small>
 										<span class="text-muted">Code: </span><span><?php echo $row['employee_code'] ?></span><br>
 										<span class="text-muted">Name: </span><span><?php echo $row['fullname'] ?></span>
-									</small>
-								</p>
-							</td>
-							<td>
-								<p class="m-0">
-									<small>
-										<span class="text-muted">Department: </span><span><?php echo $row['department'] ?></span><br>
-										<span class="text-muted">Position: </span><span><?php echo $row['designation'] ?></span>
 									</small>
 								</p>
 							</td>

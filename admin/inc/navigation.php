@@ -35,7 +35,7 @@
                       <a href="<?php echo base_url ?>admin/?page=employee" class="nav-link nav-employee">
                         <i class="nav-icon fas fa-user-friends"></i>
                         <p>
-                          Employee List
+                          Liste des Apprenants
                         </p>
                       </a>
                     </li>
@@ -43,41 +43,17 @@
                       <a href="<?php echo base_url ?>admin/?page=reports/employee" class="nav-link nav-reports_employee">
                         <i class="nav-icon fas fa-th-list"></i>
                         <p>
-                          Employee Logs
+                          Rapport des Apprenants
                         </p>
                       </a>
                     </li>
-                    <li class="nav-item">
-                      <a href="<?php echo base_url ?>admin/?page=reports/visitor" class="nav-link nav-reports_visitor">
-                        <i class="nav-icon fas fa-table"></i>
-                        <p>
-                          Visitors Logs
-                        </p>
-                      </a>
-                    </li>
+                  
                     <?php if($_settings->userdata('type') == 1): ?>
-                    <li class="nav-header">Maintenance</li>
-                    <li class="nav-item dropdown">
-                      <a href="<?php echo base_url ?>admin/?page=maintenance/department" class="nav-link nav-maintenance_department">
-                        <i class="nav-icon fas fa-building"></i>
-                        <p>
-                          Department List
-                        </p>
-                      </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a href="<?php echo base_url ?>admin/?page=maintenance/designation" class="nav-link nav-maintenance_designation">
-                        <i class="nav-icon fas fa-list"></i>
-                        <p>
-                          Designation List
-                        </p>
-                      </a>
-                    </li>
                     <li class="nav-item dropdown">
                       <a href="<?php echo base_url ?>admin/?page=user/list" class="nav-link nav-user_list">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
-                          User List
+                          Liste des Administrateurs
                         </p>
                       </a>
                     </li>
@@ -85,7 +61,7 @@
                       <a href="<?php echo base_url ?>admin/?page=system_info" class="nav-link nav-system_info">
                         <i class="nav-icon fas fa-cogs"></i>
                         <p>
-                          Settings
+                          Paramètres
                         </p>
                       </a>
                     </li>

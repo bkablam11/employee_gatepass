@@ -38,13 +38,8 @@
             <div class="card-header p-0 pt-1">
             <ul class="nav nav-tabs" id="panel-tab" role="tablist">
                 <li class="nav-item">
-                <a class="nav-link active" id="custom-tabs-one-employees-tab" data-toggle="pill" href="#custom-tabs-one-employees" role="tab" aria-controls="custom-tabs-one-employees" aria-selected="true">Employees</a>
+                <a class="nav-link active" id="custom-tabs-one-employees-tab" data-toggle="pill" href="#custom-tabs-one-employees" role="tab" aria-controls="custom-tabs-one-employees" aria-selected="true">Interface de connexion</a>
                 </li>
-                <li class="nav-item">
-                <a class="nav-link" id="custom-tabs-one-visitors-tab" data-toggle="pill" href="#custom-tabs-one-visitors" role="tab" aria-controls="custom-tabs-one-visitors" aria-selected="false">Visitors</a>
-                </li>
-                
-                
             </ul>
             </div>
             <div class="card-body">
@@ -61,12 +56,12 @@
                                            <input type="text" id="employee_code" name="employee_code" class="form-control form-control-lg rounded-0" autofocus autocomplete="off">
                                        </div>
                                        <div class="form-group text-center">
-                                           <label for="ip">Votre Adresse IP est: </label>
-                                           <input type="text" id="ip" name="ip" class="form-control form-control-lg rounded-0" autofocus autocomplete="off" value="<?=$ip; ?>" readonly>
+                                           <input type="text" id="ip" name="ip" class="form-control form-control-lg rounded-0" autofocus autocomplete="off" value="<?=$ip; ?>" readonly hidden>
                                        </div>
                                        <div class="form-group text-center">
                                            <button class="btn btn-lg rounded-pill btn-primary elog px-4 col-4" type="button" data-type='1' >In</button>
                                            <button class="btn btn-lg rounded-pill btn-danger elog px-4 col-4" type="button" data-type='2' >Out</button>
+                                           <button class="btn btn-lg rounded-pill btn-danger elog px-4 col-4" type="button" data-type='3' ><a href="ok_geolocation.php">Loc</a></button>
                                        </div>
                                    </div>
                                </div>
@@ -74,36 +69,6 @@
                        </form>
                    </div>
                 </div>
-                <div class="tab-pane fade" id="custom-tabs-one-visitors" role="tabpanel" aria-labelledby="custom-tabs-one-visitors-tab">
-                <div class="container-fluid py-5">
-                       <form action="" id="visitor-log-form">
-                           <input type="hidden" name="type">
-                           <div class="col-12">
-                               <div class="row justify-content-center">
-                                   <div class="col-md-8">
-                                       <div class="form-group text-center">
-                                           <label for="name">Name</label>
-                                           <input type="text" id="name" name="name" class="form-control form-control-lg rounded-0" autocomplete="off">
-                                       </div>
-                                       <div class="form-group text-center">
-                                           <label for="contact">Contact #</label>
-                                           <input type="text" id="contact" name="contact" class="form-control form-control-lg rounded-0" autocomplete="off">
-                                       </div>
-                                       <div class="form-group text-center">
-                                           <label for="address">Address</label>
-                                           <textarea rows="2" id="address" name="address" class="form-control form-control-lg rounded-0" autocomplete="off"></textarea>
-                                       </div>
-                                       <div class="form-group text-center">
-                                           <label for="purpose">Purpose</label>
-                                           <textarea rows="2" id="purpose" name="purpose" class="form-control form-control-lg rounded-0" autocomplete="off"></textarea>
-                                       </div>
-                                       <div class="form-group text-center">
-                                           <button class="btn btn-lg rounded-pill btn-primary elog px-4 col-4" type="button" data-type='1' >In</button>
-                                           <button class="btn btn-lg rounded-pill btn-danger elog px-4 col-4" type="button" data-type='2' >Out</button>
-                                       </div>
-                                   </div>
-                               </div>
-                           </div>
                        </form>
                    </div>
                 </div>

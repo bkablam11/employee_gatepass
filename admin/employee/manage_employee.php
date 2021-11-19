@@ -28,7 +28,7 @@ if(isset($_GET['id'])){
 </style>
 <div class="card card-outline card-primary">
     <div class="card-header">
-        <h5 class="card-title"><?php echo isset($id) ? "Update Employee's Details - ".$employee_code : 'Add New Employee' ?></h5>
+        <h5 class="card-title"><?php echo isset($id) ? "Update Employee's Details - ".$employee_code : 'Ajout Nouveau simplonien' ?></h5>
     </div>
     <div class="card-body">
         <div class="container-fluid">
@@ -36,41 +36,37 @@ if(isset($_GET['id'])){
                 <input type="hidden" name="id" value="<?php echo isset($id) ? $id : '' ?>">
                 <div class="col-md-12">
                     <fieldset class="border-bottom border-info">
-                        <legend class="text-info">Personal Information</legend>
+                        <legend class="text-info">Informations Personnel</legend>
                         <div class="row">
                             <div class="form-group col-sm-4">
-                                <label for="lastname" class="control-label text-info">Last Name</label>
+                                <label for="lastname" class="control-label text-info">Nom </label>
                                 <input type="text" class="form-control form-control-sm rounded-0" id="lastname" name="lastname" value="<?php echo isset($lastname) ? $lastname : '' ?>" required>
                             </div>
                             <div class="form-group col-sm-4">
-                                <label for="firstname" class="control-label text-info">First Name</label>
+                                <label for="firstname" class="control-label text-info">Prenoms</label>
                                 <input type="text" class="form-control form-control-sm rounded-0" id="firstname" name="firstname" value="<?php echo isset($firstname) ? $firstname : '' ?>" required>
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <label for="middlename" class="control-label text-info">Middle Name</label>
-                                <input type="text" class="form-control form-control-sm rounded-0" id="middlename" name="middlename" value="<?php echo isset($middlename) ? $middlename : '' ?>" placeholder="optional">
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-sm-4">
-                                <label for="gender" class="control-label text-info">Gender</label>
+                                <label for="gender" class="control-label text-info">Genre</label>
                                 <select name="gender" id="gender" class="custom-select custom-select-sm rounded-0" required>
                                     <option <?php echo isset($gender) && $gender == 'Male' ? "selected" : '' ?>>Male</option>
                                     <option <?php echo isset($gender) && $gender == 'Female' ? "selected" : '' ?>>Female</option>
                                 </select>
                             </div>
                             <div class="form-group col-sm-4">
-                                <label for="dob" class="control-label text-info">Date of Birth</label>
+                                <label for="dob" class="control-label text-info">Date de Naissance</label>
                                 <input type="date" class="form-control form-control-sm rounded-0" id="dob" name="dob" value="<?php echo isset($dob) ? $dob : '' ?>" required>
                             </div>
                             <div class="form-group col-sm-4">
-                                <label for="contact" class="control-label text-info">Contact #</label>
+                                <label for="contact" class="control-label text-info">Contact</label>
                                 <input type="text" class="form-control form-control-sm rounded-0" id="contact" name="contact" value="<?php echo isset($contact) ? $contact : '' ?>" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-sm-12">
-                                <label for="address" class="control-label text-info">Address</label>
+                                <label for="address" class="control-label text-info">Lieu d'habitation</label>
                                 <textarea type="text" class="form-control form-control-sm rounded-0" id="address" name="address" required placeholder="Street, Apartment Unit #/Building, City, State/Province, ZIP Code"><?php echo isset($address) ? $address : '' ?></textarea>
                             </div>
                         </div>
@@ -81,33 +77,6 @@ if(isset($_GET['id'])){
                             </div>
                         </div>
                     </fieldset>
-                    <fieldset class="border-bottom border-info">
-                        <legend class="text-info">Company Details</legend>
-                        <div class="row">
-                            <div class="form-group col-sm-4">
-                                <label for="department_id" class="control-label text-info">Department</label>
-                                <select name="department_id" id="department_id" class="custom-select custom-select-sm rounded-0 select2" data-placeholder="Select Department Here" required>
-                                    <option <?php echo !isset($department_id) ? "selected" : '' ?> disabled></option>
-                                    <?php 
-                                    $department_qry = $conn->query("SELECT * FROM department_list where status = 1 ".((isset($department_id) && $department_id != null) ? " OR id = '{$department_id}'":"" )." order by name asc");
-                                    while($row = $department_qry->fetch_assoc()):
-                                    ?>
-                                    <option value="<?php echo $row['id'] ?>" <?php echo isset($department_id) && $department_id == $row['id'] ? "selected" : '' ?> <?php echo ($row['status'] != 1) ? "disabled": "" ?>><?php echo $row['name'] ?></option>
-                                    <?php endwhile; ?>
-                                </select>
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <label for="designation_id" class="control-label text-info">Designation</label>
-                                <select name="designation_id" id="designation_id" class="custom-select custom-select-sm rounded-0 select2" data-placeholder="Select designation Here" required>
-                                    <option <?php echo !isset($designation_id) ? "selected" : '' ?> disabled></option>
-                                    <?php 
-                                    $designation_qry = $conn->query("SELECT * FROM designation_list where status = 1 ".((isset($designation_id) && $designation_id != null) ? " OR id = '{$designation_id}'":"" )." order by name asc");
-                                    while($row = $designation_qry->fetch_assoc()):
-                                    ?>
-                                    <option value="<?php echo $row['id'] ?>" <?php echo isset($designation_id) && $designation_id == $row['id'] ? "selected" : '' ?> <?php echo ($row['status'] != 1) ? "disabled": "" ?>><?php echo $row['name'] ?></option>
-                                    <?php endwhile; ?>
-                                </select>
-                            </div>
                             <?php if(isset($status)): ?>
                             <div class="form-group col-md-4">
                                 <label for="status" class="control-label">Status</label>
@@ -120,12 +89,12 @@ if(isset($_GET['id'])){
                         </div>
                     </fieldset>
                     <fieldset class="border-bottom border-info">
-                        <legend class="text-info">Employee Image</legend>
+                        <legend class="text-info">Photo Apprenant</legend>
                         <div class="row">
                             <div class="form-group col-sm-4">
                                 <div class="custom-file rounded-0">
                                     <input type="file" class="custom-file-input rounded-0" id="avatar" name="avatar" onchange="displayImg(this,$(this))">
-                                    <label class="custom-file-label rounded-0" for="avatar">Choose file</label>
+                                    <label class="custom-file-label rounded-0" for="avatar">Choisir un fichier</label>
                                 </div>
                             </div>
                             <div class="form-group col-sm-4 text-center">

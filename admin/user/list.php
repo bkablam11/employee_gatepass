@@ -15,9 +15,9 @@
 </style>
 <div class="card card-outline card-primary">
 	<div class="card-header">
-		<h3 class="card-title">List of System Users</h3>
+		<h3 class="card-title">Liste des administrateurs</h3>
 		<div class="card-tools">
-			<a href="?page=user/manage_user" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Create New</a>
+			<a href="?page=user/manage_user" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Creer un nouvel utilisateur</a>
 		</div>
 	</div>
 	<div class="card-body">
@@ -36,10 +36,10 @@
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Avatar</th>
-						<th>Name</th>
-						<th>Username</th>
-						<th>User Type</th>
+						<th>Photo</th>
+						<th>Nom</th>
+						<th>Prenoms</th>
+						<th>Type d'Administrateur</th>
 						<th>Action</th>
 					</tr>
 				</thead>

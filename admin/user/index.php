@@ -16,16 +16,12 @@ foreach($user->fetch_array() as $k =>$v){
 			<form action="" id="manage-user">	
 				<input type="hidden" name="id" value="<?php echo $_settings->userdata('id') ?>">
 				<div class="form-group">
-					<label for="name">First Name</label>
+					<label for="name">Nom</label>
 					<input type="text" name="firstname" id="firstname" class="form-control" value="<?php echo isset($meta['firstname']) ? $meta['firstname']: '' ?>" required>
 				</div>
 				<div class="form-group">
-					<label for="name">Last Name</label>
+					<label for="name">Prenoms</label>
 					<input type="text" name="lastname" id="lastname" class="form-control" value="<?php echo isset($meta['lastname']) ? $meta['lastname']: '' ?>" required>
-				</div>
-				<div class="form-group">
-					<label for="username">Username</label>
-					<input type="text" name="username" id="username" class="form-control" value="<?php echo isset($meta['username']) ? $meta['username']: '' ?>" required  autocomplete="off">
 				</div>
 				<div class="form-group">
 					<label for="password">Password</label>
@@ -33,10 +29,10 @@ foreach($user->fetch_array() as $k =>$v){
 					<small><i>Leave this blank if you dont want to change the password.</i></small>
 				</div>
 				<div class="form-group">
-					<label for="" class="control-label">Avatar</label>
+					<label for="" class="control-label">Photo</label>
 					<div class="custom-file">
 		              <input type="file" class="custom-file-input rounded-circle" id="customFile" name="img" onchange="displayImg(this,$(this))">
-		              <label class="custom-file-label" for="customFile">Choose file</label>
+		              <label class="custom-file-label" for="customFile">Choisir un fichier</label>
 		            </div>
 				</div>
 				<div class="form-group d-flex justify-content-center">

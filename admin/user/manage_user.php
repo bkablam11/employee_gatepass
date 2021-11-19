@@ -19,16 +19,12 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 			<form action="" id="manage-user">	
 				<input type="hidden" name="id" value="<?php echo isset($meta['id']) ? $meta['id']: '' ?>">
 				<div class="form-group col-6">
-					<label for="name">First Name</label>
+					<label for="name">Nom</label>
 					<input type="text" name="firstname" id="firstname" class="form-control" value="<?php echo isset($meta['firstname']) ? $meta['firstname']: '' ?>" required>
 				</div>
 				<div class="form-group col-6">
-					<label for="name">Last Name</label>
+					<label for="name">Prenoms</label>
 					<input type="text" name="lastname" id="lastname" class="form-control" value="<?php echo isset($meta['lastname']) ? $meta['lastname']: '' ?>" required>
-				</div>
-				<div class="form-group col-6">
-					<label for="username">Username</label>
-					<input type="text" name="username" id="username" class="form-control" value="<?php echo isset($meta['username']) ? $meta['username']: '' ?>" required  autocomplete="off">
 				</div>
 				<div class="form-group col-6">
 					<label for="password">Password</label>
@@ -38,17 +34,17 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                     <?php endif; ?>
 				</div>
 				<div class="form-group col-6">
-					<label for="type">User Type</label>
+					<label for="type"> Type d'Administateur</label>
 					<select name="type" id="type" class="custom-select" value="<?php echo isset($meta['type']) ? $meta['type']: '' ?>" required>
-						<option value="1" <?php echo isset($type) && $type == 1 ? 'selected': '' ?>>Administrator</option>
-						<option value="2"> <?php echo isset($type) && $type == 2 ? 'selected': '' ?>Staff</option>
+						<option value="1" <?php echo isset($type) && $type == 1 ? 'selected': '' ?>>Formateur</option>
+						<option value="2"> <?php echo isset($type) && $type == 2 ? 'selected': '' ?>SuperAdmin</option>
 					</select>
 				</div>
 				<div class="form-group col-6">
-					<label for="" class="control-label">Avatar</label>
+					<label for="" class="control-label">Photo</label>
 					<div class="custom-file">
 		              <input type="file" class="custom-file-input rounded-circle" id="customFile" name="img" onchange="displayImg(this,$(this))">
-		              <label class="custom-file-label" for="customFile">Choose file</label>
+		              <label class="custom-file-label" for="customFile">Choisir fichier</label>
 		            </div>
 				</div>
 				<div class="form-group col-6 d-flex justify-content-center">

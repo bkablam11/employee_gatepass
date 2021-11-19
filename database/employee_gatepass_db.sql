@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 04, 2021 at 03:25 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.28
+-- Hôte : localhost
+-- Généré le : ven. 19 nov. 2021 à 17:08
+-- Version du serveur : 10.4.21-MariaDB
+-- Version de PHP : 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `employee_gatepass_db`
+-- Base de données : `employee_gatepass_db`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `department_list`
+-- Structure de la table `department_list`
 --
 
 CREATE TABLE `department_list` (
@@ -38,7 +37,7 @@ CREATE TABLE `department_list` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `department_list`
+-- Déchargement des données de la table `department_list`
 --
 
 INSERT INTO `department_list` (`id`, `name`, `description`, `status`, `date_created`, `date_updated`) VALUES
@@ -50,7 +49,7 @@ INSERT INTO `department_list` (`id`, `name`, `description`, `status`, `date_crea
 -- --------------------------------------------------------
 
 --
--- Table structure for table `designation_list`
+-- Structure de la table `designation_list`
 --
 
 CREATE TABLE `designation_list` (
@@ -63,7 +62,7 @@ CREATE TABLE `designation_list` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `designation_list`
+-- Déchargement des données de la table `designation_list`
 --
 
 INSERT INTO `designation_list` (`id`, `name`, `description`, `status`, `date_created`, `date_updated`) VALUES
@@ -85,7 +84,7 @@ INSERT INTO `designation_list` (`id`, `name`, `description`, `status`, `date_cre
 -- --------------------------------------------------------
 
 --
--- Table structure for table `employee_list`
+-- Structure de la table `employee_list`
 --
 
 CREATE TABLE `employee_list` (
@@ -100,17 +99,18 @@ CREATE TABLE `employee_list` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `employee_list`
+-- Déchargement des données de la table `employee_list`
 --
 
 INSERT INTO `employee_list` (`id`, `employee_code`, `department_id`, `designation_id`, `fullname`, `status`, `date_created`, `date_updated`) VALUES
 (1, '2021-0001', 1, 2, 'Smith, Johnny D', 1, '2021-11-04 10:30:37', '2021-11-04 10:44:21'),
-(2, '2021-0002', 2, 12, 'Blake, Claire C', 1, '2021-11-04 10:49:18', '2021-11-04 10:49:18');
+(2, '2021-0002', 2, 12, 'Blake, Claire C', 1, '2021-11-04 10:49:18', '2021-11-04 10:49:18'),
+(3, '2021-0003', 2, 8, 'Blanchard, Kablam K', 1, '2021-11-16 22:04:43', '2021-11-16 22:04:43');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `employee_meta`
+-- Structure de la table `employee_meta`
 --
 
 CREATE TABLE `employee_meta` (
@@ -120,7 +120,7 @@ CREATE TABLE `employee_meta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `employee_meta`
+-- Déchargement des données de la table `employee_meta`
 --
 
 INSERT INTO `employee_meta` (`employee_id`, `meta_field`, `meta_value`) VALUES
@@ -139,12 +139,20 @@ INSERT INTO `employee_meta` (`employee_id`, `meta_field`, `meta_value`) VALUES
 (2, 'dob', '1997-10-14'),
 (2, 'contact', '09123456789'),
 (2, 'address', 'Sample address 2'),
-(2, 'email', 'cblake@sample.com');
+(2, 'email', 'cblake@sample.com'),
+(3, 'lastname', 'Blanchard'),
+(3, 'firstname', 'Kablam'),
+(3, 'middlename', 'K'),
+(3, 'gender', 'Male'),
+(3, 'dob', '2021-11-17'),
+(3, 'contact', '0748782205'),
+(3, 'address', 'Abobo Akeikoi'),
+(3, 'email', 'bkablam10@gmail.com');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `logs`
+-- Structure de la table `logs`
 --
 
 CREATE TABLE `logs` (
@@ -155,19 +163,50 @@ CREATE TABLE `logs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `logs`
+-- Déchargement des données de la table `logs`
 --
 
 INSERT INTO `logs` (`id`, `employee_id`, `type`, `date_created`) VALUES
 (1, 2, 1, '2021-11-04 21:52:29'),
 (2, 1, 2, '2021-11-04 21:52:36'),
 (3, 2, 1, '2021-11-04 21:52:42'),
-(4, 2, 2, '2021-11-04 21:52:48');
+(4, 2, 2, '2021-11-04 21:52:48'),
+(5, 2, 1, '2021-11-16 22:03:46'),
+(6, 3, 1, '2021-11-16 22:04:57'),
+(7, 3, 2, '2021-11-16 22:05:10'),
+(8, 3, 2, '2021-11-16 22:05:37'),
+(9, 3, 1, '2021-11-16 22:56:57'),
+(10, 2, 1, '2021-11-18 10:04:41'),
+(11, 2, 2, '2021-11-18 10:04:45'),
+(12, 2, 1, '2021-11-18 10:38:24'),
+(13, 2, 1, '2021-11-18 11:46:22'),
+(14, 2, 1, '2021-11-18 11:55:05'),
+(15, 2, 1, '2021-11-18 12:25:08'),
+(16, 2, 1, '2021-11-18 12:25:54'),
+(17, 2, 1, '2021-11-18 12:28:24'),
+(18, 2, 1, '2021-11-18 12:31:28'),
+(19, 2, 1, '2021-11-18 13:15:34'),
+(20, 2, 1, '2021-11-18 13:16:32'),
+(21, 2, 1, '2021-11-18 13:29:28'),
+(22, 2, 1, '2021-11-18 13:30:13'),
+(23, 2, 1, '2021-11-18 13:51:36'),
+(24, 2, 1, '2021-11-18 13:53:39'),
+(25, 2, 1, '2021-11-18 14:00:05'),
+(26, 2, 1, '2021-11-19 13:19:01'),
+(27, 2, 3, '2021-11-19 14:03:42'),
+(28, 2, 1, '2021-11-19 14:03:51'),
+(29, 2, 2, '2021-11-19 14:04:12'),
+(30, 2, 1, '2021-11-19 14:12:33'),
+(31, 2, 2, '2021-11-19 14:12:40'),
+(32, 2, 3, '2021-11-19 14:12:48'),
+(33, 2, 1, '2021-11-19 15:06:53'),
+(34, 2, 1, '2021-11-19 15:07:17'),
+(35, 2, 2, '2021-11-19 15:07:21');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `system_info`
+-- Structure de la table `system_info`
 --
 
 CREATE TABLE `system_info` (
@@ -177,21 +216,21 @@ CREATE TABLE `system_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `system_info`
+-- Déchargement des données de la table `system_info`
 --
 
 INSERT INTO `system_info` (`id`, `meta_field`, `meta_value`) VALUES
-(1, 'name', 'Employee and Visitor Gate Pass Logging System - PHP'),
-(6, 'short_name', 'EVGPLS - PHP'),
-(11, 'logo', 'uploads/logo-1635986546.png'),
+(1, 'name', 'Gestion de Présence Simplon.ci'),
+(6, 'short_name', 'GPS'),
+(11, 'logo', 'uploads/logo-1637337862.png'),
 (13, 'user_avatar', 'uploads/user_avatar.jpg'),
-(14, 'cover', 'uploads/cover-1635986546.png'),
+(14, 'cover', 'uploads/cover-1637100027.png'),
 (15, 'content', 'Array');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Structure de la table `users`
 --
 
 CREATE TABLE `users` (
@@ -209,18 +248,17 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `users`
+-- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id`, `firstname`, `middlename`, `lastname`, `username`, `password`, `avatar`, `last_login`, `type`, `date_added`, `date_updated`) VALUES
-(1, 'Adminstrator', NULL, 'Admin', 'admin', '0192023a7bbd73250516f069df18b500', 'uploads/avatar-1.png?v=1635556826', NULL, 1, '2021-01-20 14:02:37', '2021-10-30 09:20:26'),
-(11, 'Claire', NULL, 'Blake', 'cblake', 'cd74fae0a3adf459f73bbf187607ccea', 'uploads/avatar-11.png?v=1635920566', NULL, 1, '2021-11-03 14:22:46', '2021-11-03 14:22:46'),
-(13, 'John', NULL, 'Smith', 'jsmith', '1254737c076cf867dc53d60a0364f38e', 'uploads/avatar-13.png?v=1636035589', NULL, 2, '2021-11-04 22:19:49', '2021-11-04 22:19:49');
+(1, 'Adminstrator', NULL, 'admin', 'admin', '0192023a7bbd73250516f069df18b500', 'uploads/avatar-1.png?v=1637338040', NULL, 1, '2021-01-20 14:02:37', '2021-11-19 16:07:20'),
+(11, 'Claire', NULL, 'Blake', 'cblake', 'cd74fae0a3adf459f73bbf187607ccea', 'uploads/avatar-11.png?v=1635920566', NULL, 1, '2021-11-03 14:22:46', '2021-11-03 14:22:46');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_meta`
+-- Structure de la table `user_meta`
 --
 
 CREATE TABLE `user_meta` (
@@ -233,7 +271,7 @@ CREATE TABLE `user_meta` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `visitor_logs`
+-- Structure de la table `visitor_logs`
 --
 
 CREATE TABLE `visitor_logs` (
@@ -247,7 +285,7 @@ CREATE TABLE `visitor_logs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `visitor_logs`
+-- Déchargement des données de la table `visitor_logs`
 --
 
 INSERT INTO `visitor_logs` (`id`, `name`, `contact`, `address`, `purpose`, `type`, `date_created`) VALUES
@@ -257,23 +295,23 @@ INSERT INTO `visitor_logs` (`id`, `name`, `contact`, `address`, `purpose`, `type
 (4, 'Samantha Jane Lou', '09887865444', 'Sample Address 2', 'Sample only', 2, '2021-11-04 22:14:16');
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `department_list`
+-- Index pour la table `department_list`
 --
 ALTER TABLE `department_list`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `designation_list`
+-- Index pour la table `designation_list`
 --
 ALTER TABLE `designation_list`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `employee_list`
+-- Index pour la table `employee_list`
 --
 ALTER TABLE `employee_list`
   ADD PRIMARY KEY (`id`),
@@ -281,100 +319,100 @@ ALTER TABLE `employee_list`
   ADD KEY `designation_id` (`designation_id`);
 
 --
--- Indexes for table `employee_meta`
+-- Index pour la table `employee_meta`
 --
 ALTER TABLE `employee_meta`
   ADD KEY `employee_id` (`employee_id`);
 
 --
--- Indexes for table `logs`
+-- Index pour la table `logs`
 --
 ALTER TABLE `logs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `system_info`
+-- Index pour la table `system_info`
 --
 ALTER TABLE `system_info`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Index pour la table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user_meta`
+-- Index pour la table `user_meta`
 --
 ALTER TABLE `user_meta`
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `visitor_logs`
+-- Index pour la table `visitor_logs`
 --
 ALTER TABLE `visitor_logs`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `department_list`
+-- AUTO_INCREMENT pour la table `department_list`
 --
 ALTER TABLE `department_list`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `designation_list`
+-- AUTO_INCREMENT pour la table `designation_list`
 --
 ALTER TABLE `designation_list`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `employee_list`
+-- AUTO_INCREMENT pour la table `employee_list`
 --
 ALTER TABLE `employee_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `logs`
+-- AUTO_INCREMENT pour la table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT for table `system_info`
+-- AUTO_INCREMENT pour la table `system_info`
 --
 ALTER TABLE `system_info`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `visitor_logs`
+-- AUTO_INCREMENT pour la table `visitor_logs`
 --
 ALTER TABLE `visitor_logs`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Constraints for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Constraints for table `employee_list`
+-- Contraintes pour la table `employee_list`
 --
 ALTER TABLE `employee_list`
   ADD CONSTRAINT `employee_list_ibfk_1` FOREIGN KEY (`department_id`) REFERENCES `department_list` (`id`) ON DELETE SET NULL,
   ADD CONSTRAINT `employee_list_ibfk_2` FOREIGN KEY (`designation_id`) REFERENCES `designation_list` (`id`) ON DELETE SET NULL;
 
 --
--- Constraints for table `employee_meta`
+-- Contraintes pour la table `employee_meta`
 --
 ALTER TABLE `employee_meta`
   ADD CONSTRAINT `employee_meta_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee_list` (`id`) ON DELETE CASCADE;
